@@ -2,7 +2,7 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-        <span :class="textStyle" >0</span>
+        <span :class="textStyle" ></span>
     </div>  
 </template>
 <script>
@@ -10,10 +10,10 @@ export default {
     name: 'block',
     computed:{
         realWidth: function() {
-            return this.width+ 'px';
+            return this.width;
         },
         realHeight: function() {
-            return this.height + 'px'
+            return this.height
         },
         textStyle: function() {
             return 'block-'+this.arrangement+'-'+this.textPosition+'-'+this.style

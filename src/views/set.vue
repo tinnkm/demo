@@ -5,10 +5,13 @@
       </div>
       <div class="content">
         <div class="numberModal">
-          <orangeBlock></orangeBlock>
-          <span class="numberStyle">数值样式</span>
-          <span class="ruler">卡尺式</span>
-          <span class="mediate">居中式</span>
+       
+            <orangeBlock></orangeBlock>
+            <span class="numberStyle">数值样式</span>
+            <span class="ruler">卡尺式</span>
+            <span class="mediate">居中式</span>
+          
+          
         </div>
         <dotted></dotted>
         <div class="arrangeModal">
@@ -32,10 +35,10 @@
              <span class="descript">单色块的长宽</span>
           </div>
           <div class="bottom">
-            <span class="left" >长</span>
-            <input v-model="width" type="text" style="width:35px,border:0.5px solid #bebcbc">
-            <span class="right">宽</span>
-            <input v-model="height" type="text" style="width:35px,border:0.5px solid #bebcbc">
+              <span >长</span>
+              <input v-model="width" type="text" >
+              <span >宽</span>
+              <input v-model="width" type="text" >
           </div>
           <div></div>
         </div>
@@ -85,84 +88,113 @@ export default {
      }
      .content{
 
-      padding: 0 12px;
+        padding: 0 12px;
      
-      .numberModal{
-       height: 32px;
-       width: 100%;
-       padding-left: 4px;
-       padding-top: 10px;
-       orangeBlock{
-         vertical-align:top;
-       }
-       .numberStyle{
-         font-size:14px;
-         height: 14px;
-         line-height: 14px;
-         margin-left: 8px;
-         color: #757676;
-         vertical-align: top;
-       }
-       .ruler{
-          color: #757676;
-           font-size:12px;
-           line-height: 12px;
-           vertical-align: top;
-       }
-       .mediate{
+        .numberModal{
+         height: 32px;
+         width: 100%;
+         padding-left: 4px;
+         padding-top: 10px;
+         display: flex;
+         align-items: center;
+           orangeBlock{
+          //  vertical-align:top;
+              flex:1
+           }
+          .numberStyle{
+            flex:1;
+            display: inline-block;
+            font-size:14px;
+           line-height: 14px;
+          // height: 25px;
+           margin-left: 8px;
            color: #757676;
-           font-size:12px;
-           line-height: 12px;
            vertical-align: top;
-       }
-
-
-     }
-     .arrangeModal{
-       height: 78px;
-        padding-left: 4px;
-       padding-top: 10px;
-       orangeBlock{
-         vertical-align:top;
-       }
-       .arrangeStyle{
-         vertical-align:top;
-         font-size: 14px;
-         color: #757676;
-         line-height: 14px;
-         margin-left: 8px;
-
-       }
-       .upright-text{
-          font-size: 14px;
-         color: #757676;
-         line-height: 14px;
-       }
-       .across-text{
-         font-size: 14px;
-         color: #757676;
-         line-height: 14px;
-       }
-     }
-     .onePiece{
-        height: 74px;
-        padding-left: 4px;
-        padding-top: 10px;
-       .top{
-          orangeBlock{
-          vertical-align:top;
-         }
-         .descript{
-           vertical-align:top;
+           }
+          .ruler{
+            flex:1;
+            color: #757676;
+            font-size:12px;
+            line-height: 12px;
+           // vertical-align: top;
+           }
+          .mediate{
+            flex:1;
+            color: #757676;
+            font-size:12px;
+            line-height: 12px;
+           // vertical-align: top;
+          }
+        }
+        .arrangeModal{
+          height: 78px;
+          padding-left: 4px;
+          padding-top: 10px;
+          .top{
+            display: flex;
+            align-items: center;
+             orangeBlock{
+               flex: 1;
+            //   vertical-align:top;
+            }
+           .arrangeStyle{
+             flex: 1;
+            // vertical-align:top;
+             font-size: 14px;
+             color: #757676;
+             line-height: 14px;
+             margin-left: 8px;
+            }
+          }
+         
+         .upright-text{
            font-size: 14px;
            color: #757676;
            line-height: 14px;
-           margin-left: 8px;
-       }
-       
+          }
+         .across-text{
+          font-size: 14px;
+          color: #757676;
+          line-height: 14px;
+          }
+        }
+        .onePiece{
+          height: 74px;
+          padding-left: 4px;
+          padding-top: 10px;
+          .top{
+            display: flex;
+            align-items: center;
+              orangeBlock{
+              // vertical-align:top;
+              flex:1;
+              }
+             .descript{
+                flex:1;
+               // vertical-align:top;
+               font-size: 14px;
+               color: #757676;
+               line-height: 14px;
+               margin-left: 8px;
+              }
 
-       }
-     }
+          }
+        
+          span{
+            font-size: 14px;
+           color: #757676;
+           line-height: 14px;
+           margin-right: 2px;
+          }
+          input{
+            width: 35px;
+            height: 20px;
+            border:1px solid #bebcbc;
+            margin-right: 13px;
+            text-align: center;
+          }
+        }
+
      }
   }
 
