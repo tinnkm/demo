@@ -96,7 +96,7 @@ export default {
       width: '50',
       height: '20',
       arrangement: 'vertical',
-      textPosition: 'right',
+      textPosition: 'left',
       textStyle: 'start',
       vbtn:[
         {
