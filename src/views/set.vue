@@ -59,6 +59,8 @@ export default {
       width: '10',
       height: '10',
       arrangement: 'vertical',
+      textPosition: '',
+      style: '',
       data:[
         {
           color: 'red',
