@@ -21,10 +21,10 @@
           </div>
           <div class="bottom">
             <div class="upright">
-              <span class="upright-text">竖排</span>
+              <span class="upright-text"><input type="radio" v-model="arrangement" value="vertical"/>竖排</span>
             </div>
             <div class="across">
-              <span class="across-text">横排</span>
+              <span class="across-text"><input type="radio" v-model="arrangement" value="horizontal"/>横排</span>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@
           <div></div>
         </div>
       </div>
-      <block :width="width" :height="height" backgroundColor="red"></block>
+      <block :width="width" :height="height" :data="data" :arrangement="arrangement"></block>
    </div>
 </template>
 
@@ -59,8 +59,21 @@ export default {
   },
   data () {
     return {
-      width: '',
-      height: ''
+      width: '10',
+      height: '10',
+      arrangement: 'vertical',
+      textPosition: '',
+      style: '',
+      data:[
+        {
+          color: 'red',
+          text: '0'
+        },
+        {
+          color: 'green',
+          text: '10'
+        }
+      ]
     }
   }
 
