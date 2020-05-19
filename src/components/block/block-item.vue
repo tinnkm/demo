@@ -2,7 +2,7 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-         <span :class="textStyle"  >{{text}}</span>
+         <span :class="spanStyle"  >{{text}}</span>
     </div>  
     
 </template>
@@ -22,18 +22,18 @@ export default {
             }
             return this.height + 'px'
         },
-        textStyle: function() {
-            return 'block-'+this.arrangement+'-'+this.textPosition+'-'+this.style
+        spanStyle: function() {
+            return 'block-'+this.arrangement+'-'+this.textPosition+'-'+this.textStyle
         }
     },
     props: {
         width: {
-            type: Number,
-            default: () => 40
+            type: String,
+            default: () => '40'
         },
         height: {
-            type: Number,
-            default: () => 15
+            type: String,
+            default: () => '15'
         },
         backgroundColor: {
             type: String,
@@ -47,7 +47,7 @@ export default {
             type: String,
             default: () => 'right'
         },
-        style: {
+        textStyle: {
             type: String,
             default: () => 'start'
         },

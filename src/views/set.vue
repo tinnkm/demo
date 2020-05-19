@@ -9,8 +9,8 @@
        
             <orangeBlock></orangeBlock>
             <span class="numberStyle">数值样式</span>
-            <span class="ruler">卡尺式</span>
-            <span class="mediate">居中式</span>
+            <span class="ruler"><input type="radio" v-model="textStyle" value="start"/>卡尺式</span>
+            <span class="mediate"><input type="radio" v-model="textStyle" value="center"/>居中式</span>
           
           
         </div>
@@ -23,10 +23,11 @@
           <div class="bottom">
             <div class="upright">
               <span class="upright-text"><input type="radio" v-model="arrangement" value="vertical"/>竖排</span>
-              <aroundButton></aroundButton>
+              <aroundButton :data="vbtn" @selected="selected"></aroundButton>
             </div>
             <div class="across">
               <span class="across-text"><input type="radio" v-model="arrangement" value="horizontal"/>横排</span>
+              <aroundButton :data="hbtn" @selected="selected"></aroundButton>
             </div>
           </div>
         </div>
@@ -40,7 +41,7 @@
               <span >长</span>
               <input v-model="width" type="text" >
               <span >宽</span>
-              <input v-model="width" type="text" >
+              <input v-model="height" type="text" >
           </div>
           <div></div>
         </div>
@@ -49,8 +50,9 @@
     </div>
     <div class="disk">
       <span> 单位:mm</span>
-      <block :width="width" :height="height" :data="data" :arrangement="arrangement"></block>
+      <block :width="width" :height="height" :data="data" :textStyle="textStyle" :textPosition="tp" :arrangement="arrangement"></block>
     </div>
+    {{tp}}
   </div>
 </template>
 
@@ -66,13 +68,56 @@ export default {
     block,
     aroundButton
   },
+  computed:{
+    tp() {
+
+      if (this.arrangement === 'vertical') {
+        let flag = this.vbtn.some(item => item.key === this.textPosition)
+        if (flag) {
+          return this.textPosition
+        }else{
+          // 修正点击横向/或者纵向时,位置位置不对
+          return this.vbtn[0].key
+        }
+      }else{
+        let flag = this.hbtn.some(item => item.key === this.textPosition)
+        if (flag) {
+          return this.textPosition
+        }else{
+          // 修正点击横向/或者纵向时,位置位置不对
+          return this.hbtn[0].key
+        }
+      }
+    }
+
+  },
   data () {
     return {
-      width: '10',
-      height: '10',
+      width: '50',
+      height: '20',
       arrangement: 'vertical',
-      textPosition: '',
-      style: '',
+      textPosition: 'right',
+      textStyle: 'start',
+      vbtn:[
+        {
+          key: 'left',
+          lable: '左'
+        },
+         {
+          key: 'right',
+          lable: '右'
+        }
+      ],
+      hbtn:[
+        {
+          key: 'top',
+          lable: '上'
+        },
+         {
+          key: 'bottom',
+          lable: '下'
+        }
+      ],
       data:[
         {
           color: '#810042',
@@ -103,6 +148,12 @@ export default {
           text: '0'
         }
       ]
+    }
+  },
+  methods:{
+    selected(key){
+      this.textPosition = key
+      console.log(this.textPosition)
     }
   }
 

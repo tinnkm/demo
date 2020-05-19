@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'horizontal': arrangement === 'horizontal'}">
     <BlockItem
       v-for="item in data"
       :text="item.text"
@@ -9,7 +9,7 @@
       :height="height"
       :arrangement="arrangement"
       :textPosition="textPosition"
-      :style="style"
+      :textStyle="textStyle"
     ></BlockItem>
   </div>
 </template>
@@ -24,12 +24,12 @@ export default {
             default: () => []
         },
         width: {
-            type: Number,
-            default: () => 40
+            type: String,
+            default: () => '40'
         },
         height: {
-            type: Number,
-            default: () => 15
+            type: String,
+            default: () => '15'
         },
         arrangement: {
             type: String,
@@ -39,10 +39,18 @@ export default {
             type: String,
             default: () => 'right'
         },
-        style: {
+        textStyle: {
             type: String,
             default: () => 'start'
         },
     }
 }
 </script>
+
+<style lang="less" scoped>
+.horizontal{
+    display: inline-flex;
+    flex-direction: row-reverse;
+}
+
+</style>
