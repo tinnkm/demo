@@ -2,7 +2,7 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-        <span class="block-vertical-right-bottom" >0</span>
+        <span :class="textStyle" >0</span>
     </div>  
 </template>
 <script>
@@ -14,6 +14,9 @@ export default {
         },
         realHeight: function() {
             return this.height + 'px'
+        },
+        textStyle: function() {
+            return 'block-'+this.arrangement+'-'+this.textPosition+'-'+this.style
         }
     },
     props: {
