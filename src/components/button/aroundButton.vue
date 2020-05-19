@@ -32,6 +32,10 @@ export default {
 .contain{
     display: inline-flex;
     margin-left: 20px;
+    span{
+        font-size: 14px;
+        color: #757676;
+    }
     .btn-wrapper{
         margin-left: 5px;
     }

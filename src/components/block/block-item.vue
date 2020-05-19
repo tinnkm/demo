@@ -12,15 +12,15 @@ export default {
     computed:{
         realWidth: function() {
             if(this.arrangement === 'vertical'){
-                return this.height + 'px';
+                return this.height ;
             }
-            return this.width+ 'px';
+            return this.width;
         },
         realHeight: function() {
             if(this.arrangement === 'vertical'){
-                return this.width + 'px';
+                return this.width;
             }
-            return this.height + 'px'
+            return this.height
         },
         spanStyle: function() {
             return 'block-'+this.arrangement+'-'+this.textPosition+'-'+this.textStyle
@@ -64,11 +64,14 @@ export default {
 .block-wrapper{
     position: relative;
     border: 1px solid #000;
-    border-bottom: none;
+   // border-bottom: none;
+   margin-top:-1px;
+   margin-right: -1px;
     span{
+        width: 10px;
         font-size: 14px;
         color: #000;
-        text-align: left;
+       text-align: center
     }
 }
 .block-horizontal-top{

@@ -9,8 +9,8 @@
        
             <orangeBlock></orangeBlock>
             <span class="numberStyle">数值样式</span>
-            <span class="ruler"><input type="radio" v-model="textStyle" value="start"/>卡尺式</span>
             <span class="mediate"><input type="radio" v-model="textStyle" value="center"/>居中式</span>
+            <span class="ruler"><input type="radio" v-model="textStyle" value="start"/>卡尺式</span>
           
           
         </div>
@@ -93,8 +93,8 @@ export default {
   },
   data () {
     return {
-      width: '50',
-      height: '20',
+      width: '50px',
+      height: '20px',
       arrangement: 'vertical',
       textPosition: 'left',
       textStyle: 'start',
@@ -221,6 +221,10 @@ export default {
            vertical-align: top;
            }
           .ruler{
+            input{
+              vertical-align: middle;
+              margin-right: 6px;
+            }
             flex:1;
             color: #757676;
             font-size:12px;
@@ -228,6 +232,10 @@ export default {
            // vertical-align: top;
            }
           .mediate{
+            input{
+              vertical-align: middle;
+              margin-right: 6px;
+            }
             flex:1;
             color: #757676;
             font-size:12px;
@@ -258,12 +266,23 @@ export default {
          .upright{
             margin:4px 0 7px 0;
           .upright-text{
+            input{
+              vertical-align: middle;
+              margin-right: 6px;
+            }
            font-size: 14px;
            color: #757676;
            line-height: 14px;
+           input{
+             vertical-align: middle;
+           }
            }
          }
          .across-text{
+           input{
+             vertical-align: middle;
+             margin-right: 6px;
+           }
           font-size: 14px;
           color: #757676;
           line-height: 14px;
