@@ -1,8 +1,9 @@
 <template>
-    <div :style="{width:realWidth,
+    <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
-                  backgroundColor:backgroundColor}"></div>
-    
+                  backgroundColor:backgroundColor}">
+        <span class="block-top-left" >0</span>
+    </div>  
 </template>
 <script>
 export default {
@@ -34,11 +35,38 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.cellBlock{
-    height: 40px;
-    width: 15px;
-    box-sizing: content-box;
-    border:1px solid #000;
+.block-wrapper{
+    position: relative;
+    background-color: green;
+    width: 200px;
+    height: 200px;;
+}
+.block-top{
+    &-left{
+        position:absolute;
+        transform: translate(-50%,-20px);
+    }
+    &-center{
+        position:absolute;
+        left: 50%;
+        transform: translate(-50%,-20px);
+    }
+
+}
+
+.block-bottom{
+    &-left{
+        position:absolute;
+        bottom: 0;
+        transform: translate(-50%,20px);
+    }
+    &-center{
+        position:absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,20px);
+    }
+
 }
 
 </style>
