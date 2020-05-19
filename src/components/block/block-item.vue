@@ -2,8 +2,9 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-        <span :class="textStyle"  >{{text}}</span>
+         <span :class="textStyle"  >{{text}}</span>
     </div>  
+    
 </template>
 <script>
 export default {
@@ -62,6 +63,13 @@ export default {
 <style lang="less" scoped>
 .block-wrapper{
     position: relative;
+    border: 1px solid #000;
+    border-bottom: none;
+    span{
+        font-size: 14px;
+        color: #000;
+        text-align: left;
+    }
 }
 .block-horizontal-top{
     &-start{

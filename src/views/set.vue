@@ -1,4 +1,5 @@
 <template >
+  <div class="r">
     <div class="setPanel">
       <div class="title">
         <div class="colorSet">色谱设置</div>
@@ -22,6 +23,7 @@
           <div class="bottom">
             <div class="upright">
               <span class="upright-text"><input type="radio" v-model="arrangement" value="vertical"/>竖排</span>
+              <aroundButton></aroundButton>
             </div>
             <div class="across">
               <span class="across-text"><input type="radio" v-model="arrangement" value="horizontal"/>横排</span>
@@ -43,19 +45,26 @@
           <div></div>
         </div>
       </div>
+      
+    </div>
+    <div class="disk">
+      <span> 单位:mm</span>
       <block :width="width" :height="height" :data="data" :arrangement="arrangement"></block>
-   </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import orangeBlock from "@/components/orangeBlock/orangeBlock.vue"
 import block from "@/components/block/block.vue"
 import dotted from '@/components/dotted/dotted.vue'
+import aroundButton from '@/components/button/aroundButton.vue'
 export default {
   components:{
     orangeBlock,
     dotted,
-    block
+    block,
+    aroundButton
   },
   data () {
     return {
@@ -66,12 +75,32 @@ export default {
       style: '',
       data:[
         {
-          color: 'red',
-          text: '0'
+          color: '#810042',
+          text: '50'
         },
         {
-          color: 'green',
-          text: '10'
+          color: '#f304ed',
+          text: '40'
+        },
+        {
+          color: '#0000ff',
+          text: '15'
+        },
+        {
+          color:'#61b8ff',
+          text: '7'
+        },
+        {
+          color:'#3dba3d',
+          text: '1.6'
+        },
+        {
+          color:'#a6f28f',
+          text: '0.1'
+        },
+        {
+          color:'#ffffff',
+          text: '0'
         }
       ]
     }
@@ -80,9 +109,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.r{
+   display: flex;
   .setPanel{
+      display: inline-block;
      width: 265px;
-     height: 220px;
+     height: 227px;
      background: #f8feff;
      margin-top: 20px;
      margin-left: 20px;
@@ -90,6 +122,7 @@ export default {
      .title{
        background: #e3f1f5;
        .colorSet{
+         position: relative;
          background: #429feb;
          color: #fff;
          font-size:12px;
@@ -97,6 +130,18 @@ export default {
          height: 32px;
          line-height: 32px;
          text-align: center;
+         &::after{
+           content:"";
+           width:0;
+           height:0;
+          position: absolute;
+          top: 12px;
+          left: 70px;
+        border-top:solid  5px transparent;
+        border-left:solid 5px #429feb ;
+       border-bottom:solid 5px transparent;
+
+         }
        }
      }
      .content{
@@ -105,9 +150,9 @@ export default {
      
         .numberModal{
          height: 32px;
+         line-height: 32px;
          width: 100%;
          padding-left: 4px;
-         padding-top: 10px;
          display: flex;
          align-items: center;
            orangeBlock{
@@ -118,7 +163,7 @@ export default {
             flex:1;
             display: inline-block;
             font-size:14px;
-           line-height: 14px;
+           // line-height: 14px;
           // height: 25px;
            margin-left: 8px;
            color: #757676;
@@ -159,12 +204,14 @@ export default {
              margin-left: 8px;
             }
           }
-         
-         .upright-text{
+         .upright{
+            margin:4px 0 7px 0;
+          .upright-text{
            font-size: 14px;
            color: #757676;
            line-height: 14px;
-          }
+           }
+         }
          .across-text{
           font-size: 14px;
           color: #757676;
@@ -172,7 +219,7 @@ export default {
           }
         }
         .onePiece{
-          height: 74px;
+          height: 4px;
           padding-left: 4px;
           padding-top: 10px;
           .top{
@@ -189,6 +236,7 @@ export default {
                color: #757676;
                line-height: 14px;
                margin-left: 8px;
+               margin-bottom: 10px;
               }
 
           }
@@ -197,7 +245,7 @@ export default {
             font-size: 14px;
            color: #757676;
            line-height: 14px;
-           margin-right: 2px;
+           margin-right: 4px;
           }
           input{
             width: 35px;
@@ -210,5 +258,15 @@ export default {
 
      }
   }
-
+  .disk{
+    flex: 1;
+    display: inline-block;
+    margin-left: 70px;
+    margin-top:50px;
+     span{
+      color: #000;
+      font-size: 13px;
+     }
+  }
+}
 </style>

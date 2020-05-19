@@ -12,7 +12,7 @@ export default {
 .orangeBlock{
     display: inline-block;
     width: 4px;
-    height: 14px;
+    height: 12px;
     background: #f18b4c;
 }
     
