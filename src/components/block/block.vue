@@ -2,7 +2,7 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-        <span class="block-right-bottom" >0</span>
+        <span class="block-vertical-right-bottom" >0</span>
     </div>  
 </template>
 <script>
@@ -28,6 +28,18 @@ export default {
         backgroundColor: {
             type: String,
             default: () => "white"
+        },
+        arrangement: {
+            type: String,
+            default: () => 15
+        },
+        textPosition: {
+            type: Number,
+            default: () => 15
+        },
+        style: {
+            type: Number,
+            default: () => 15
         }
     },
 
@@ -41,7 +53,7 @@ export default {
     width: 200px;
     height: 200px;;
 }
-.block-top{
+.block-horizontal-top{
     &-left{
         position:absolute;
         transform: translate(-50%,-20px);
@@ -54,7 +66,7 @@ export default {
 
 }
 
-.block-bottom{
+.block-horizontal-bottom{
     &-left{
         position:absolute;
         bottom: 0;
@@ -69,7 +81,7 @@ export default {
 
 }
 
-.block-left{
+.block-vertical-left{
     &-bottom{
         position:absolute;
         bottom: 0;
@@ -83,7 +95,7 @@ export default {
 
 }
 
-.block-right{
+.block-vertical-right{
     &-bottom{
         position:absolute;
         bottom: 0;
