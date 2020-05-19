@@ -2,7 +2,7 @@
     <div class="block-wrapper" :style="{display:'block',width:realWidth,
                   height:realHeight,
                   backgroundColor:backgroundColor}">
-        <span class="block-top-left" >0</span>
+        <span class="block-right-bottom" >0</span>
     </div>  
 </template>
 <script>
@@ -68,5 +68,36 @@ export default {
     }
 
 }
+
+.block-left{
+    &-bottom{
+        position:absolute;
+        bottom: 0;
+        transform: translate(-20px,50%);
+    }
+    &-center{
+        position:absolute;
+        bottom: 50%;
+        transform: translate(-20px,50%);
+    }
+
+}
+
+.block-right{
+    &-bottom{
+        position:absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(20px,50%);
+    }
+    &-center{
+        position:absolute;
+        right: 0;
+        bottom: 50%;
+        transform: translate(20px,50%);
+    }
+
+}
+
 
 </style>
